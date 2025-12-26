@@ -1,35 +1,85 @@
-ESP32 Mesh-Netzwerk zur Temperaturüberwachung in Gebäuden
-📌 Projektbeschreibung
+🎯 Funktionsübersicht – Projekt „ESP32 Mesh-Netzwerk zur Temperaturüberwachung“
 
-Dieses Projekt realisiert ein sicheres und skalierbares Sensornetzwerk zur Erfassung und Visualisierung von Temperaturdaten in Gebäuden.
+Das Projekt realisiert ein skalierbares, sicheres Sensornetzwerk zur Temperaturüberwachung in Gebäuden.
+Mehrere ESP32-basierte Sensorknoten erfassen Temperaturdaten und kommunizieren über ein WiFi-Mesh-Netzwerk.
+Die Daten werden über LoRaWAN an einen lokalen Server übertragen, gespeichert und visualisiert.
 
-Mehrere ESP32-basierte Sensorknoten messen Temperaturen und kommunizieren über ein eigenes WiFi-Mesh-Netzwerk miteinander.
-Die gesammelten Daten werden über LoRaWAN an einen lokalen Server übertragen, in InfluxDB gespeichert und mit Grafana visualisiert.
+🔐 1. Sensorknoten & Mesh-Kommunikation
 
-Das System ist für den Innenbereich konzipiert und eignet sich u. a. für:
+Temperaturmessung mit DS1621 (I2C)
 
-🏢 Gebäudeüberwachung
+Kommunikation der ESP32-Knoten über painlessMesh
 
-🌡️ Raumklima-Analyse
+Selbstheilendes, dynamisches WiFi-Mesh-Netzwerk
 
-⚡ Energieeffizienz-Optimierung
+Automatische Knoten-Erkennung und Weiterleitung
 
-🧭 Systemübersicht
-Datenfluss
-ESP32-Sensorknoten
-→ WiFi-Mesh-Netzwerk
-→ ESP32-Station mit LoRa
-→ LoRaWAN-Gateway (Raspberry Pi + WM1302)
-→ ChirpStack
-→ InfluxDB
-→ Grafana-Dashboard
+📡 2. Stationsknoten mit LoRa-Anbindung
 
-🧩 Hardware
+Empfang aggregierter Messdaten aus dem Mesh
+
+Weiterleitung der Daten per LoRa (SPI)
+
+Gateway-nahe Datenkonzentration
+
+Reduzierung der LoRa-Sendeintervalle zur Energieeinsparung
+
+🌍 3. LoRaWAN-Gateway
+
+Raspberry Pi mit WM1302 / LR1302
+
+Betrieb als lokales LoRaWAN-Gateway
+
+GPS-Zeit- und Positionssynchronisation
+
+Weiterleitung der Pakete an den Network Server
+
+🗄️ 4. Backend & Datenverarbeitung
+
+ChirpStack als LoRaWAN Network Server
+
+MQTT (Mosquitto) für Nachrichtenverarbeitung
+
+InfluxDB zur Speicherung von Zeitreihendaten
+
+Docker-basierter, reproduzierbarer Serverbetrieb
+
+📊 5. Visualisierung & Monitoring
+
+Grafana-Dashboards für:
+
+Echtzeit-Temperaturwerte
+
+Historische Verläufe
+
+Vergleich mehrerer Räume
+
+Filterung nach Knoten, Zeit und Standort
+
+Erweiterbar für weitere Sensordaten
+
+🧪 6. Test- & Demonstrationsdaten
+
+Unterstützung von Testknoten
+
+Simulation mehrerer Sensoren
+
+Geeignet für Vorführungen und Entwicklung
+
+⚙️ 7. Skalierbarkeit & Erweiterbarkeit
+
+Beliebig viele ESP32-Sensorknoten integrierbar
+
+Erweiterbar um zusätzliche Sensoren (z. B. Luftfeuchte, CO₂)
+
+Modularer Aufbau (Firmware, Gateway, Backend getrennt)
+
+🧩 Hardwareübersicht
 Sensorknoten
 
 ESP32 (BERRYBASE ESP32)
 
-DS1621 Temperatursensor (I²C)
+DS1621 Temperatursensor (I2C)
 
 Breadboard & Jumper-Kabel
 
@@ -47,11 +97,9 @@ Raspberry Pi 4 Model B
 
 LR1302 LoRaWAN HAT
 
-WM1302 LoRaWAN Gateway Modul
+WM1302 Gateway Modul
 
-GPS-Antenne
-
-LoRa-Antenne
+GPS- & LoRa-Antenne
 
 microSD-Karte
 
@@ -62,63 +110,28 @@ Arduino IDE
 
 ESP32 Board Package
 
-painlessMesh (WiFi-Mesh-Netzwerk)
+painlessMesh
 
-I²C (Temperatursensor)
-
-SPI (LoRa-Modul)
+I2C / SPI
 
 Server & Backend
 
-ChirpStack (LoRaWAN Network Server)
+ChirpStack
 
 Docker & Docker Compose
 
 Mosquitto (MQTT)
 
-InfluxDB (Zeitreihendatenbank)
+InfluxDB
 
-Grafana (Datenvisualisierung)
+Grafana
 
-⚙️ Installation
-ESP32-Firmware
+🚀 Einsatzgebiete
 
-Arduino IDE installieren
+🏢 Gebäude- und Raumüberwachung
 
-ESP32-Boardpaket hinzufügen
+🌡️ Raumklima-Analyse
 
-Bibliothek painlessMesh installieren
+⚡ Energieeffizienz-Optimierung
 
-Firmware auf alle ESP32-Knoten flashen
-
-Gateway & Server
-
-Raspberry Pi OS installieren
-
-Docker & Docker Compose installieren
-
-ChirpStack per Docker starten
-
-SX1302 Packet Forwarder konfigurieren
-
-InfluxDB & Grafana installieren und verbinden
-
-🚀 Funktionen
-
-🌡️ Temperaturmessung in mehreren Räumen
-
-🔗 Selbstheilendes WiFi-Mesh-Netzwerk
-
-📡 Sichere Datenübertragung über LoRaWAN
-
-📊 Echtzeit- und Langzeit-Visualisierung
-
-📈 Skalierbar durch zusätzliche Sensorknoten
-
-📎 Hinweise
-
-Das System ist für lokale Netze konzipiert
-
-Erweiterbar um weitere Sensoren (z. B. Luftfeuchtigkeit, CO₂)
-
-Ideal für Forschungs-, Lehr- und Smart-Building-Projekte
+🎓 Forschung & Lehre
