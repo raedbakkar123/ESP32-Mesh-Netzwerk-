@@ -1,4 +1,4 @@
-﻿### 🎯 Funktionsübersicht – 
+﻿### 🎯 Funktionsübersicht
 Projekt „ESP32 Mesh-Netzwerk zur Temperaturüberwachung“
 Das Projekt realisiert ein skalierbares, sicheres Sensornetzwerk zur Temperaturüberwachung in Gebäuden.
 Mehrere ESP32-basierte Sensorknoten erfassen Temperaturdaten und kommunizieren über ein WiFi-Mesh-Netzwerk.
