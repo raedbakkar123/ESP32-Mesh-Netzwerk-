@@ -46,10 +46,10 @@ o Vergleich mehrerer Räume
 • Erweiterbar um zusätzliche Sensoren (z. B. Luftfeuchte, CO₂)
 • Modularer Aufbau (Firmware, Gateway, Backend getrennt)
 
-🧩 Hardwareübersicht
+## 🧩 Hardwareübersicht
 Sensorknoten
 • ESP32 (BERRYBASE ESP32)
-• DS1621 Temperatursensor (I²C)
+• DS1621 Temperatursensor (I2C)
 • Breadboard \& Jumper-Kabel
 Stationsknoten
 • ESP32
@@ -62,7 +62,7 @@ Gateway
 • GPS- \& LoRa-Antenne
 • microSD-Karte
 
-💻 Software \& Technologien
+## 💻 Software \& Technologien
 Firmware
 • Arduino IDE
 • ESP32 Board Package
@@ -75,7 +75,7 @@ Server \& Backend
 • InfluxDB
 • Grafana
 
-🚀 Einsatzgebiete
+## 🚀 Einsatzgebiete
 • 🏢 Gebäude- und Raumüberwachung
 • 🌡️ Raumklima-Analyse
 • ⚡ Energieeffizienz-Optimierung
