@@ -1,13 +1,3 @@
-/****************************************************
- * Projekt:   ESP32 Mesh Temperaturmessung
- * Datei:     Stationknoten.ino
- * Autor:     Rukaia Al Mezal
- * Datum:     17.12.2025
- *
-  ****************************************************/
-
-
-
 // ===== Region & Chip hier festlegen (KEIN Extra-Header nötig) =====
 #include <Arduino.h>
 #include <SPI.h>

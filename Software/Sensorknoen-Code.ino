@@ -1,13 +1,3 @@
-/****************************************************
- * Projekt:   ESP32 Mesh Temperaturmessung
- * Datei:     Sensorknoten.ino
- * Autor:     Rukaia Al Mezal
- * Datum:     17.12.2025
- *
-  ****************************************************/
-
-
-
 #include <painlessMesh.h>  // Bibliothek für Mesh-Netzwerke
 #include <Wire.h>          // I2C-Kommunikation (für DS1621)
 
